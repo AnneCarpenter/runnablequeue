@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ====================================================================== -->
+<!-- Ant build file (http://ant.apache.org/) for Ant 1.6.2 or above.        -->
+<!-- Note: This depends on the maven ant tasks plugin. For installation     -->
+<!--       details, please reference the following page:                    -->
+<!-- http://maven.apache.org/ant-tasks/installation.html                    -->
+<!-- ====================================================================== -->
+
+<project name="runnablequeue" default="package" basedir="." 
+	xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+  <!-- ====================================================================== -->
+  <!-- Help target                                                            -->
+  <!-- ====================================================================== -->
+
+  <target name="help">
+    <echo message="Please run: $ant -projecthelp"/>
+  </target>
+  <target name="test">
+  	<artifact:mvn failonerror="true">
+  		<arg value="test"/>
+ 	</artifact:mvn>
+  </target>
+  <target name="clean">
+  	<artifact:mvn >
+  		<arg value="clean"/>
+ 	</artifact:mvn>
+  </target>
+  <target name="package">
+	<artifact:mvn>
+		<arg value="package"/>
+	</artifact:mvn>
+  </target>
+</project>
